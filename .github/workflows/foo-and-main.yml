@@ -1,0 +1,19 @@
+name: foo and main
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'foo/*'
+
+jobs:
+    foo_and_main:
+        name: Print Foo!
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: print
+              run: |
+                echo "Main 브랜치에서 Foo 경로에 변경 생김"
