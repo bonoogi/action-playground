@@ -6,7 +6,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'foo/*'
+      - 'foo/**'
 
 jobs:
     foo_and_main:
