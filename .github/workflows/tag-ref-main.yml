@@ -1,0 +1,30 @@
+name: tag ref main
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - '*'
+
+jobs:
+    tag_ref_main:
+        name: Print Baz!
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check out repository
+              uses: actions/checkout@v2
+        
+            - name: Check if tag is on main branch
+              id: check_tag
+              run: |
+                if [ "$(git branch --contains $(git rev-parse HEAD) | grep main)" ]; then
+                  echo "tag_on_main=true" >> $GITHUB_ENV
+                else
+                  echo "tag_on_main=false" >> $GITHUB_ENV
+                fi
+            
+            - name: print baz
+              if: env.tag_on_main == 'true'
+              run: |
+                echo "Main 브랜치에서 Foo 경로에 변경 생김"
