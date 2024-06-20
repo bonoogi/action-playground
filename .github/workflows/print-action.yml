@@ -2,10 +2,9 @@ name: just print action
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches:
-      - 'exp'
   push:
+    tags:
+      - '*'
     branches:
       - 'main'
 
