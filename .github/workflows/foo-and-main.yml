@@ -10,10 +10,10 @@ on:
 
 jobs:
     foo_and_main:
-        name: Print Foo!
+        name: Print Bar!
         runs-on: ubuntu-latest
 
         steps:
-            - name: print
+            - name: print bar
               run: |
                 echo "Main 브랜치에서 Foo 경로에 변경 생김"
